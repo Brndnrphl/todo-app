@@ -8,7 +8,10 @@ module.exports = {
       },
       fontSize: {
         0: "0",
+        vsm: "0.5rem",
+        med: "0.7rem",
       },
+      scale: { 200: "2.0" },
     },
   },
   plugins: [],

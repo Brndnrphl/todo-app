@@ -1,6 +1,15 @@
 <%- include('partials/header') %>
 
 <h1 class="title font-JetBrains font-bold text-2xl m-4 absolute">todoList</h1>
+<div class="absolute top-0 right-0 m-4">
+<form action="/logout" method="POST">
+    <button
+      class="bg-transparent hover:bg-slate-900 text-slate-900 font-semibold hover:text-white py-2 px-4 border border-slate-900 hover:border-transparent rounded"
+    >
+      Sign out
+</form>
+  </button>
+</div>
 <main class="flex justify-center min-h-screen pb-12 font-JetBrains bg-slate-50">
   <div class="main drop-shadow-2xl">
     <div class="inputBar flex text-0 mt-14">
@@ -26,11 +35,11 @@
       <div>
         <li
           id="<%= i %>"
-          class="flex justify-between items-center bg-gray-100 border-b-2 p-2 text-2xl <%= todos[i].completed ? 'italic font-semibold text-green-500' : '' %> <%= i === todos.length - 1 ? 'rounded-b-lg' : '' %>"
+          class="font-sans flex justify-between items-center bg-gray-100 border-b-2 p-2 text-2xl <%= todos[i].completed ? 'italic font-semibold text-green-500' : '' %> <%= i === todos.length - 1 ? 'rounded-b-lg' : '' %>"
         >
           <span class=""><%= todos[i].task %></span>
           <div class="todoButtons flex justify-between">
-            <form action="/home/<%= i %>?_method=PATCH" method="POST">
+            <form action="/home/<%= todos[i].task %>?_method=PATCH" method="POST">
               <button
                 type="submit"
                 class="hover:bg-gray-300 hover:cursor-pointer rounded flex items-center h-full mr-2"
@@ -38,7 +47,7 @@
                 <ion-icon name="checkmark-outline"></ion-icon>
               </button>
             </form>
-            <form action="/home/<%= i %>?_method=DELETE" method="POST">
+            <form action="/home/<%= todos[i].task %>?_method=DELETE" method="POST">
               <button
                 type="submit"
                 class="hover:bg-gray-300 hover:cursor-pointer rounded flex items-center h-full"

@@ -1,0 +1,54 @@
+<%- include('partials/header') %>
+<main
+  class="flex justify-center items-center min-h-screen font-JetBrains scale-200"
+>
+  <div
+    class="flex flex-col justify-center items-center shadow-2xl p-5 bg-slate-50 rounded"
+  >
+    <span class="title mb-4">Welcome!</span>
+
+    <form
+      action="/login"
+      method="POST"
+      class="flex flex-col justify-center items-center"
+    >
+      <div>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="email"
+          class="w-full outline-none border-b-2 border-slate-200 bg-slate-50 text-med mb-2"
+          required
+        />
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="password"
+          class="w-full outline-none border-b-2 border-slate-200 text-med bg-slate-50"
+          required
+        />
+        <% if(error) { %>
+        <span class="<%= error ? 'text-vsm text-red-500' : 'hidden' %>">
+          <%= error ? error : 'Wrong password!' %>
+        </span>
+        <% } %>
+        <a href="/forgot" class="underline text-blue-500 text-vsm"
+          >forgot password?</a
+        >
+      </div>
+      <button
+        type="submit"
+        class="bg-transparent hover:bg-slate-900 text-slate-900 font-semibold hover:text-white py-1 px-4 border border-slate-900 hover:border-transparent rounded text-xs"
+      >
+        login
+      </button>
+    </form>
+    <span class="text-vsm mt-2"
+      >don't have an account?
+      <a href="/register" class="underline text-blue-500">sign up!</a></span
+    >
+  </div>
+</main>
+<%- include('partials/footer') %>
