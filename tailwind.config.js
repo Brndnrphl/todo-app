@@ -12,6 +12,8 @@ module.exports = {
         med: "0.7rem",
       },
       scale: { 200: "2.0" },
+      maxWidth: { bar: "658px" },
+      width: { bar: "89%" },
     },
   },
   plugins: [],

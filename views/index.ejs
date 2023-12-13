@@ -12,7 +12,8 @@
 </div>
 <main class="flex justify-center min-h-screen pb-12 font-JetBrains bg-slate-50">
   <div class="main drop-shadow-2xl">
-    <div class="inputBar flex text-0 mt-14">
+
+    <div class="inputBar flex text-0 mt-14 flex-col w-full">
       <form action="/home" method="POST" class="flex">
         <input
           type="text"
@@ -30,19 +31,18 @@
       </form>
     </div>
 
-    <ul>
+    <ul class=" taskLists w-full">
       <% if (todos) { %> <% for (let i = 0; i < todos.length; i++) { %>
       <div>
         <li
           id="<%= i %>"
-          class="font-sans flex justify-between items-center bg-gray-100 border-b-2 p-2 text-2xl <%= todos[i].completed ? 'italic font-semibold text-green-500' : '' %> <%= i === todos.length - 1 ? 'rounded-b-lg' : '' %>"
-        >
-          <span class=""><%= todos[i].task %></span>
+          class="relative max-w-bar font-sans flex justify-between items-center bg-gray-100 border-b-2 p-2 text-2xl <%= todos[i].completed ? 'italic font-semibold text-green-500' : '' %> <%= i === todos.length - 1 ? 'rounded-b-lg' : '' %> overflow-auto whitespace-nowrap">
+          <span class="w-bar overflow-scroll"><%= todos[i].task %></span>
           <div class="todoButtons flex justify-between">
             <form action="/home/<%= todos[i].task %>?_method=PATCH" method="POST">
               <button
                 type="submit"
-                class="hover:bg-gray-300 hover:cursor-pointer rounded flex items-center h-full mr-2"
+                class="hover:bg-gray-300 hover:cursor-pointer rounded flex items-center h-full mr-2 absolute top-0 right-8"
               >
                 <ion-icon name="checkmark-outline"></ion-icon>
               </button>
@@ -50,7 +50,7 @@
             <form action="/home/<%= todos[i].task %>?_method=DELETE" method="POST">
               <button
                 type="submit"
-                class="hover:bg-gray-300 hover:cursor-pointer rounded flex items-center h-full"
+                class="hover:bg-gray-300 hover:cursor-pointer rounded flex items-center h-full absolute top-0 right-2"
               >
                 <ion-icon name="trash-outline"></ion-icon>
               </button>
@@ -60,7 +60,8 @@
       </div>
       <% } %> <% } %>
     </ul>
-  </div>
+
+    </div>
 </main>
 
 <%- include('partials/footer') %>

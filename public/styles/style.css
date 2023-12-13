@@ -548,8 +548,20 @@ video {
   position: absolute;
 }
 
+.relative {
+  position: relative;
+}
+
 .right-0 {
   right: 0px;
+}
+
+.right-2 {
+  right: 0.5rem;
+}
+
+.right-8 {
+  right: 2rem;
 }
 
 .top-0 {
@@ -608,8 +620,16 @@ video {
   width: 33.333333%;
 }
 
+.w-bar {
+  width: 89%;
+}
+
 .w-full {
   width: 100%;
+}
+
+.max-w-bar {
+  max-width: 658px;
 }
 
 .flex-grow-0 {
@@ -636,6 +656,18 @@ video {
 
 .justify-between {
   justify-content: space-between;
+}
+
+.overflow-auto {
+  overflow: auto;
+}
+
+.overflow-scroll {
+  overflow: scroll;
+}
+
+.whitespace-nowrap {
+  white-space: nowrap;
 }
 
 .rounded {
